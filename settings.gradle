@@ -1,0 +1,16 @@
+// Workaround for KT-20156
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+		maven { url "https://jcenter.bintray.com/" }
+	}
+	resolutionStrategy {
+		eachPlugin {
+			if (requested.id.id == "kotlin2js" || requested.id.id == "kotlin-dce-js") {
+				useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+			}
+		}
+	}
+}
+
+include 'frontend', 'backend'

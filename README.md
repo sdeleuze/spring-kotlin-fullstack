@@ -1,0 +1,1 @@
+Spring WebFlux Kotlin backend with Kotlin2js for frontent instead of JavaScript or TypeScript.

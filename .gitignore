@@ -1,0 +1,8 @@
+.idea/
+.gradle/
+out/
+build/
+*.iml
+
+/backend/src/main/resources/static/bundle.js
+/frontend/node_modules/
