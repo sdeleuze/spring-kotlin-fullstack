@@ -1,8 +1,10 @@
 {
   "dependencies": {
-    "webpack": "3.4.1"
+    "webpack": "^3.4.1",
+    "copy-webpack-plugin": "^4.1.1"
   },
   "scripts": {
-    "bundle" : "webpack"
+    "bundle": "webpack",
+    "bundle-prod": "webpack --config=webpack.prod.config.js"
   }
 }

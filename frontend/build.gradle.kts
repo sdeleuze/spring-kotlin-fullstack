@@ -9,7 +9,6 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
 }
 
 node {
@@ -17,7 +16,7 @@ node {
 }
 
 dependencies {
-    compile("org.jetbrains.kotlin:kotlin-stdlib-js:1.1.51")
+    compile("org.jetbrains.kotlin:kotlin-stdlib-js")
 }
 
 tasks.withType<Kotlin2JsCompile> {
@@ -29,8 +28,20 @@ tasks.withType<Kotlin2JsCompile> {
 task<NpmTask>("buildBundle") {
     dependsOn("npmInstall", "runDceKotlinJs")
     inputs.dir("src/main/kotlin")
-    outputs.dir("../backend/src/main/resources/static")
-    setArgs(listOf("run", "bundle"))
+    inputs.dir("src/main/web")
+    outputs.dir("build/web")
+    val command = if (project.hasProperty("prod")) "bundle-prod" else "bundle"
+    setArgs(listOf("run", command))
+    doLast {
+        copy {
+            from("build/web")
+            into("../backend/build/resources/main/static")
+        }
+        copy {
+            from("build/web")
+            into("../backend/out/production/resources/static")
+        }
+    }
 }
 
 tasks.getByName("assemble").dependsOn("buildBundle")
