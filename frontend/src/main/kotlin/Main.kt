@@ -12,8 +12,8 @@ fun main(args: Array<String>) {
             // TODO Use it.data when KT-20743 will be fixed
             val user = JSON.parse<User>((it as MessageEvent).data as String)
             var li = document.createElement("li")
-            li.innerHTML = "User: " + user.firstName + " " + user.lastName
-            document.getElementById("users")!!.appendChild(li)
+            li.innerHTML = "User: ${user.firstName} ${user.lastName}"
+            document.getElementById("users")?.appendChild(li)
         }
         // TODO Use eventSource.onmessage when KT-20741 will be fixed
         eventSource.addEventListener("message", onMessage)
