@@ -3,8 +3,21 @@ import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
 
 plugins {
     id("com.moowork.node") version "1.2.0"
-    id("kotlin2js") version "1.1.51"
-    id("kotlin-dce-js") version "1.1.51"
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.51")
+    }
+}
+
+apply {
+    plugin("kotlin2js")
+    plugin("kotlin-dce-js")
 }
 
 repositories {
@@ -16,7 +29,7 @@ node {
 }
 
 dependencies {
-    compile("org.jetbrains.kotlin:kotlin-stdlib-js")
+    "compile"("org.jetbrains.kotlin:kotlin-stdlib-js") // See KT-20156
 }
 
 tasks.withType<Kotlin2JsCompile> {
