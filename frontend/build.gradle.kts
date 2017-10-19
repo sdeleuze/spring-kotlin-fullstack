@@ -3,25 +3,25 @@ import org.jetbrains.kotlin.gradle.tasks.Kotlin2JsCompile
 
 plugins {
     id("com.moowork.node") version "1.2.0"
+    id("kotlin2js") version "1.2.0-beta-88"
+    id("kotlin-dce-js") version "1.2.0-beta-88"
+
 }
 
 buildscript {
     repositories {
         jcenter()
+        maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.51")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0-beta-88")
     }
-}
-
-apply {
-    plugin("kotlin2js")
-    plugin("kotlin-dce-js")
 }
 
 repositories {
     mavenCentral()
+    maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
 }
 
 node {
@@ -29,7 +29,7 @@ node {
 }
 
 dependencies {
-    "compile"("org.jetbrains.kotlin:kotlin-stdlib-js") // See KT-20156
+    compile("org.jetbrains.kotlin:kotlin-stdlib-js")
 }
 
 tasks.withType<Kotlin2JsCompile> {

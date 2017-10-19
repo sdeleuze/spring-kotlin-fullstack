@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.1.51"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.1.51"
+    id("org.jetbrains.kotlin.jvm") version "1.2.0-beta-88"
+    id("org.jetbrains.kotlin.plugin.spring") version "1.2.0-beta-88"
     id("io.spring.dependency-management") version "1.0.3.RELEASE"
 }
 
@@ -10,6 +10,7 @@ buildscript {
     repositories {
         mavenCentral()
         maven("https://repo.spring.io/milestone")
+        maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
     }
 
     dependencies {
@@ -24,6 +25,7 @@ apply {
 repositories {
     mavenCentral()
     maven("https://repo.spring.io/milestone")
+    maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
 }
 
 tasks {

@@ -1,1 +1,19 @@
+// Workaround for KT-20156
+pluginManagement {
+	repositories {
+		maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.2" }
+		gradlePluginPortal()
+		maven { url "https://jcenter.bintray.com/" }
+		maven { url "https://repo1.maven.org/maven2" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	resolutionStrategy {
+		eachPlugin {
+			if (requested.id.id.startsWith("kotlin")) {
+				useModule("org.jetbrains.kotlin:kotlin-gradle-plugin:${requested.version}")
+			}
+		}
+	}
+}
+
 include 'frontend', 'backend'
