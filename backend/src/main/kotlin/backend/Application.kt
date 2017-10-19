@@ -1,5 +1,6 @@
 package backend
 
+import common.User
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
@@ -31,9 +32,6 @@ class Application {
         }
     }
 }
-
-// TODO Use common dependency with Kotlin 1.2
-data class User(val firstName: String, val lastName: String)
 
 fun main(args: Array<String>) {
     SpringApplication.run(Application::class.java, *args)

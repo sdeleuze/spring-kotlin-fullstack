@@ -1,11 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.2.0-beta-88"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.2.0-beta-88"
-    id("io.spring.dependency-management") version "1.0.3.RELEASE"
-}
-
 buildscript {
     repositories {
         mavenCentral()
@@ -15,11 +9,17 @@ buildscript {
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M5")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0-beta-88")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:1.2.0-beta-88")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE")
     }
 }
 
 apply {
     plugin("org.springframework.boot")
+    plugin("kotlin-spring")
+    plugin("kotlin-platform-jvm")
+    plugin("io.spring.dependency-management")
 }
 
 repositories {
@@ -38,9 +38,10 @@ tasks {
 }
 
 dependencies {
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8")
-    compile("org.jetbrains.kotlin:kotlin-reflect")
-    compile("org.springframework.boot:spring-boot-starter-webflux")
+    "compile"("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+    "compile"("org.jetbrains.kotlin:kotlin-reflect")
+    "compile"("org.springframework.boot:spring-boot-starter-webflux")
+    "expectedBy"(project(":common"))
 }
 
 tasks.getByName("processResources").dependsOn(":frontend:build")

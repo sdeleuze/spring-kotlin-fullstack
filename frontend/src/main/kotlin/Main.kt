@@ -1,3 +1,4 @@
+import common.User
 import org.w3c.dom.EventSource
 import org.w3c.dom.MessageEvent
 import org.w3c.dom.events.Event
@@ -20,5 +21,3 @@ fun main(args: Array<String>) {
     }
 }
 
-// TODO Use common dependency with Kotlin 1.2
-data class User(val firstName: String, val lastName: String)
