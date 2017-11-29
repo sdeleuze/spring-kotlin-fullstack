@@ -8,11 +8,10 @@ plugins {
 buildscript {
     repositories {
         jcenter()
-        maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0-beta-88")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0")
     }
 }
 
@@ -23,7 +22,6 @@ apply {
 
 repositories {
     mavenCentral()
-    maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
 }
 
 node {
@@ -60,4 +58,4 @@ task<NpmTask>("buildBundle") {
     }
 }
 
-tasks.getByName("assemble").dependsOn("buildBundle")
+tasks.getByName("build").dependsOn("buildBundle")

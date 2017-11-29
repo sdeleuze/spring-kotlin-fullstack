@@ -4,13 +4,12 @@ buildscript {
     repositories {
         mavenCentral()
         maven("https://repo.spring.io/milestone")
-        maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
     }
 
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M5")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0-beta-88")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:1.2.0-beta-88")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M6")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:1.2.0")
         classpath("io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE")
     }
 }
@@ -25,7 +24,6 @@ apply {
 repositories {
     mavenCentral()
     maven("https://repo.spring.io/milestone")
-    maven("http://dl.bintray.com/kotlin/kotlin-eap-1.2")
 }
 
 tasks {
