@@ -7,10 +7,10 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M6")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.0")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:1.2.0")
-        classpath("io.spring.gradle:dependency-management-plugin:1.0.3.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RC1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.21")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:1.2.21")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE")
     }
 }
 
@@ -36,7 +36,7 @@ tasks {
 }
 
 dependencies {
-    "compile"("org.jetbrains.kotlin:kotlin-stdlib-jre8")
+    "compile"("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     "compile"("org.jetbrains.kotlin:kotlin-reflect")
     "compile"("org.springframework.boot:spring-boot-starter-webflux")
     "expectedBy"(project(":common"))
