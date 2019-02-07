@@ -7,10 +7,10 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RC1")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.21")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:1.2.21")
-        classpath("io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.2.RELEASE")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.21")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:1.3.21")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE")
     }
 }
 
@@ -23,7 +23,6 @@ apply {
 
 repositories {
     mavenCentral()
-    maven("https://repo.spring.io/milestone")
 }
 
 tasks {

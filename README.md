@@ -12,6 +12,5 @@ to share code between JS and JVM using a common module.
 * To build application with minified JavaScript files run `./gradlew build -Pprod`
 
 See related pending Kotlin issues (vote for them ;-):
-* [KT-20743](https://youtrack.jetbrains.com/issue/KT-20743): Use strongly typed events in Kotlin2js DOM API
-* [KT-20741](https://youtrack.jetbrains.com/issue/KT-20741): Unable to use EventSource with Kotlin2js
-* [KT-20156](https://youtrack.jetbrains.com/issue/KT-20156): Publish the Kotlin Javascript Gradle plugin to the Gradle Plugins Portal (in order to be able to use Gradle new plugin mechanism required for Kotlin DSL without using the workaround in `settings.gradle`) 
+* [KT-20156](https://youtrack.jetbrains.com/issue/KT-20156): Publish the Kotlin Javascript Gradle plugin to the Gradle Plugins Portal (in order to be able to use Gradle new plugin mechanism required for Kotlin DSL without using the workaround in `settings.gradle`)
+* [KT-22635](https://youtrack.jetbrains.com/issue/KT-22635): Consider coercion to target type dynamic like our COERCION_TO_UNIT 
