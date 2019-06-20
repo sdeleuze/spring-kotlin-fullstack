@@ -8,7 +8,7 @@ fun main() {
     window.onload = {
         EventSource("/api/users").onmessage = {
             val user = JSON.parse<User>(it.data as String)
-            var li = document.createElement("li").apply {
+            val li = document.createElement("li").apply {
                 innerHTML = "User: ${user.firstName} ${user.lastName}"
             }
             document.getElementById("users")!!.appendChild(li)

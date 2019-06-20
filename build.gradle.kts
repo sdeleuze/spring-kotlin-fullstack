@@ -4,12 +4,11 @@ allprojects {
 }
 
 plugins {
-    base
+    kotlin("multiplatform") version "1.3.40" apply false
+    kotlin("js") version "1.3.40" apply false
+    kotlin("plugin.allopen") version "1.3.40" apply false
 }
 
-dependencies {
-    // Make the root project archives configuration depend on every subproject
-    subprojects.forEach {
-        archives(it)
-    }
+repositories {
+
 }

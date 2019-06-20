@@ -1,28 +1,24 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.run.BootRun
 
-buildscript {
-    repositories {
-        mavenCentral()
-        maven("https://repo.spring.io/milestone")
-    }
+plugins {
+    kotlin("jvm")
+    kotlin("plugin.allopen")
 
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.2.RELEASE")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.21")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:1.3.21")
-        classpath("io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE")
-    }
+    id("org.springframework.boot") version "2.1.6.RELEASE"
 }
 
-apply {
-    plugin("org.springframework.boot")
-    plugin("kotlin-spring")
-    plugin("kotlin-platform-jvm")
-    plugin("io.spring.dependency-management")
-}
+apply(plugin = "io.spring.dependency-management")
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    "compile"("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    "compile"("org.jetbrains.kotlin:kotlin-reflect")
+    "compile"("org.springframework.boot:spring-boot-starter-webflux")
+    "compile"(project(":shared"))
 }
 
 tasks {
@@ -34,11 +30,14 @@ tasks {
     }
 }
 
-dependencies {
-    "compile"("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    "compile"("org.jetbrains.kotlin:kotlin-reflect")
-    "compile"("org.springframework.boot:spring-boot-starter-webflux")
-    "expectedBy"(project(":common"))
+allOpen {
+    annotation("org.springframework.boot.autoconfigure.SpringBootApplication")
 }
 
-tasks.getByName("processResources").dependsOn(":frontend:build")
+//tasks {
+//    processResources {
+//        dependsOn(":frontend:browserWebpack")
+//        from(project(":frontend").projectDir.resolve("src/main/resources"))
+//        from(project(":frontend").buildDir.resolve("libs/spring-kotlin-fullstack-frontend.js"))
+//    }
+//}
