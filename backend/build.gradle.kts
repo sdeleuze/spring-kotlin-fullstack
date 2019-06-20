@@ -15,6 +15,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation(project(":shared"))
 }
 
@@ -25,4 +26,13 @@ tasks {
             freeCompilerArgs = listOf("-Xjsr305=strict")
         }
     }
+	processResources {
+		dependsOn(":frontend:browserWebpack")
+		from(project(":frontend").projectDir.resolve("src/main/resources")) {
+			into("static")
+		}
+		from(project(":frontend").buildDir.resolve("libs/spring-kotlin-fullstack-frontend.js"))  {
+			into("static")
+		}
+	}
 }
