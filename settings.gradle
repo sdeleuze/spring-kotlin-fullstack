@@ -1,1 +1,8 @@
-include 'frontend', 'backend', 'common'
+pluginManagement {
+    repositories {
+        mavenCentral()
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+}
+
+include 'frontend', 'backend', 'shared'

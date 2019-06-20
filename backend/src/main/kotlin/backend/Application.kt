@@ -13,10 +13,10 @@ import java.net.URI
 import java.time.Duration
 
 @SpringBootApplication
-class Application {
+open class Application {
 
     @Bean
-    fun routes() = router {
+    open fun routes() = router {
         GET("/") { permanentRedirect(URI("/index.html")).build() }
         (GET("/api/users") and accept(TEXT_EVENT_STREAM)) {
             val users = Flux.just(
