@@ -1,24 +1,21 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.springframework.boot.gradle.tasks.run.BootRun
 
 plugins {
     kotlin("jvm")
-    kotlin("plugin.allopen")
-
+    kotlin("plugin.spring")
     id("org.springframework.boot") version "2.1.6.RELEASE"
+	id("io.spring.dependency-management") version "1.0.7.RELEASE"
 }
-
-apply(plugin = "io.spring.dependency-management")
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    "compile"("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    "compile"("org.jetbrains.kotlin:kotlin-reflect")
-    "compile"("org.springframework.boot:spring-boot-starter-webflux")
-    "compile"(project(":shared"))
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation(project(":shared"))
 }
 
 tasks {
@@ -29,15 +26,3 @@ tasks {
         }
     }
 }
-
-allOpen {
-    annotation("org.springframework.boot.autoconfigure.SpringBootApplication")
-}
-
-//tasks {
-//    processResources {
-//        dependsOn(":frontend:browserWebpack")
-//        from(project(":frontend").projectDir.resolve("src/main/resources"))
-//        from(project(":frontend").buildDir.resolve("libs/spring-kotlin-fullstack-frontend.js"))
-//    }
-//}
