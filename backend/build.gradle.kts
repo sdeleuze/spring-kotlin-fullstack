@@ -3,12 +3,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm")
     kotlin("plugin.spring")
-    id("org.springframework.boot") version "2.1.6.RELEASE"
+    id("org.springframework.boot") version "2.2.0.M4"
 	id("io.spring.dependency-management") version "1.0.7.RELEASE"
 }
 
 repositories {
     mavenCentral()
+	maven("https://repo.spring.io/milestone")
 }
 
 dependencies {
@@ -16,6 +17,8 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.2.1")
 	implementation(project(":shared"))
 }
 
