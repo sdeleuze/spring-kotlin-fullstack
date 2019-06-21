@@ -11,6 +11,7 @@ import org.springframework.http.MediaType.TEXT_EVENT_STREAM
 import org.springframework.web.reactive.function.server.bodyFlowAndAwait
 import org.springframework.web.reactive.function.server.buildAndAwait
 import org.springframework.web.reactive.function.server.coRouter
+import org.springframework.web.reactive.function.server.sse
 import java.net.URI
 
 @FlowPreview
@@ -26,7 +27,7 @@ class Application {
 	fun routes() = coRouter {
 		GET("/") { permanentRedirect(URI("/index.html")).buildAndAwait() }
 		(GET("/api/users") and accept(TEXT_EVENT_STREAM)) {
-			ok().contentType(TEXT_EVENT_STREAM).bodyFlowAndAwait(flow {
+			ok().sse().bodyFlowAndAwait(flow {
 				while(true) {
 					delay(100)
 					emit(users.random())
