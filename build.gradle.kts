@@ -4,7 +4,8 @@ allprojects {
 }
 
 plugins {
-    kotlin("multiplatform") version "1.3.40" apply false
-    kotlin("js") version "1.3.40" apply false
-    kotlin("plugin.allopen") version "1.3.40" apply false
+	val kotlinVersion = "1.3.40"
+    kotlin("multiplatform") version kotlinVersion apply false
+    kotlin("js") version kotlinVersion apply false
+    kotlin("plugin.spring") version kotlinVersion apply false
 }

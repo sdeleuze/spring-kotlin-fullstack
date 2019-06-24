@@ -13,12 +13,13 @@ repositories {
 }
 
 dependencies {
+	val coroutinesVersion = "1.2.1"
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1")
-	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.2.1")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:$coroutinesVersion")
 	implementation(project(":shared"))
 }
 
