@@ -4,8 +4,10 @@ allprojects {
 }
 
 plugins {
-	val kotlinVersion = "1.3.40"
+    val kotlinVersion = "2.0.20"
     kotlin("multiplatform") version kotlinVersion apply false
     kotlin("js") version kotlinVersion apply false
+    kotlin("jvm") version kotlinVersion apply false
     kotlin("plugin.spring") version kotlinVersion apply false
+    kotlin("plugin.serialization") version kotlinVersion apply false
 }
