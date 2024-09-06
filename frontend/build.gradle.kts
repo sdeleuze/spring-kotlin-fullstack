@@ -1,5 +1,10 @@
+@file:OptIn(ExperimentalWasmDsl::class)
+
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
 plugins {
-    kotlin("js")
+    kotlin("multiplatform")
+    kotlin("plugin.serialization")
 }
 
 repositories {
@@ -7,16 +12,18 @@ repositories {
 }
 
 kotlin {
-    target {
+    wasmJs {
         browser()
+        binaries.executable()
+    }
 
-        sourceSets {
-            main {
-                dependencies {
-                    implementation(kotlin("stdlib-js"))
-                    implementation(project(":shared"))
-                }
+    sourceSets {
+        wasmJsMain {
+            dependencies {
+                implementation(project(":shared"))
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.2")
             }
         }
     }
+
 }

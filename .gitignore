@@ -3,5 +3,6 @@
 out/
 build/
 *.iml
+.kotlin/
 
 /frontend/node_modules/
