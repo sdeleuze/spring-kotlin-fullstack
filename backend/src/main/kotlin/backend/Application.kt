@@ -6,15 +6,12 @@ import kotlinx.coroutines.flow.flow
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
-import org.springframework.http.MediaType
 import org.springframework.http.MediaType.TEXT_EVENT_STREAM
-import org.springframework.web.reactive.config.ResourceHandlerRegistry
-import org.springframework.web.reactive.config.WebFluxConfigurer
 import org.springframework.web.reactive.function.server.*
 import java.net.URI
 
 @SpringBootApplication
-class Application: WebFluxConfigurer {
+class Application {
 
 	private val users = listOf(
 			User("Foo", "Foo"),
@@ -32,11 +29,6 @@ class Application: WebFluxConfigurer {
 				}
 			})
 		}
-	}
-
-	override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
-		registry.addResourceHandler("**.wasm").addResourceLocations("classpath:/static/")
-			.setMediaTypes(mapOf("wasm" to MediaType.valueOf("application/wasm")))
 	}
 }
 
