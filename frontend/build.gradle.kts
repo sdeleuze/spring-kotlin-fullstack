@@ -22,6 +22,7 @@ kotlin {
             dependencies {
                 implementation(project(":shared"))
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.2")
+                implementation("org.jetbrains.kotlinx:kotlinx-browser:0.3")
             }
         }
     }
