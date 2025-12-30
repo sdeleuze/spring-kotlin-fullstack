@@ -1,3 +1,5 @@
+**Outdated project, see https://github.com/sdeleuze/spring-petklinik instead.**
+
 Spring WebFlux Kotlin fullstack example with Kotlin/Wasm for frontend instead of JavaScript or TypeScript.
 
 This project leverages [Kotlin multiplatform support](https://kotlinlang.org/docs/multiplatform.html)
